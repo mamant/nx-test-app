@@ -1,0 +1,29 @@
+{
+  "root": "apps/contracts-list-app-e2e",
+  "sourceRoot": "apps/contracts-list-app-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/contracts-list-app-e2e/cypress.json",
+        "devServerTarget": "contracts-list-app:serve",
+        "tsConfig": "apps/contracts-list-app-e2e/tsconfig.json"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "contracts-list-app:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/contracts-list-app-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["contracts-list-app"]
+}

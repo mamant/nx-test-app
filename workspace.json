@@ -1,0 +1,7 @@
+{
+  "version": 2,
+  "projects": {
+    "contracts-list-app": "apps/contracts-list-app",
+    "contracts-list-app-e2e": "apps/contracts-list-app-e2e"
+  }
+}

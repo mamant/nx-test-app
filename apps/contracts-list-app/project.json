@@ -1,0 +1,72 @@
+{
+  "root": "apps/contracts-list-app",
+  "sourceRoot": "apps/contracts-list-app/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/contracts-list-app",
+        "index": "apps/contracts-list-app/src/index.html",
+        "baseHref": "/",
+        "main": "apps/contracts-list-app/src/main.tsx",
+        "polyfills": "apps/contracts-list-app/src/polyfills.ts",
+        "tsConfig": "apps/contracts-list-app/tsconfig.app.json",
+        "assets": [
+          "apps/contracts-list-app/src/favicon.ico",
+          "apps/contracts-list-app/src/assets"
+        ],
+        "styles": ["apps/contracts-list-app/src/styles.scss"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/contracts-list-app/src/environments/environment.ts",
+              "with": "apps/contracts-list-app/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "options": {
+        "buildTarget": "contracts-list-app:build",
+        "hmr": true
+      },
+      "configurations": {
+        "production": {
+          "buildTarget": "contracts-list-app:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/contracts-list-app/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/contracts-list-app"],
+      "options": {
+        "jestConfig": "apps/contracts-list-app/jest.config.js",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
