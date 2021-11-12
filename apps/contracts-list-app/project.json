@@ -43,7 +43,8 @@
       "executor": "@nrwl/web:dev-server",
       "options": {
         "buildTarget": "contracts-list-app:build",
-        "hmr": true
+        "hmr": true,
+        "proxyConfig": "apps/contracts-list-app/proxy.conf.json"
       },
       "configurations": {
         "production": {
